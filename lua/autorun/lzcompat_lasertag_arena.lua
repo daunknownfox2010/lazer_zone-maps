@@ -3,6 +3,10 @@
 AddCSLuaFile();
 
 
+-- Prevent it from loading all the time
+if ( ( engine.ActiveGamemode() != "lazerzone" ) || ( game.GetMap() != "gm_lasertag_arena" ) ) then return; end
+
+
 -- Disables yellow team
 LZDisableYellowTeam = true;
 
@@ -48,7 +52,7 @@ if ( SERVER ) then
 		end
 	
 		local basePoint = ents.Create( "lz_basepoint" );
-		basePoint:SetPos( Vector( -345, -76, 419 ) );
+		basePoint:SetPos( Vector( -345, -80, 419 ) );
 		basePoint:Spawn();
 		basePoint:Activate();
 	
